@@ -27,7 +27,7 @@ class VolumeWatcher extends StatefulWidget {
    */
   static void _onEvent(dynamic event) {
     _events.values.forEach((Function? item) {
-      item?.call(event);
+      item?.call(_asDouble(event));
     });
   }
 
@@ -70,28 +70,33 @@ class VolumeWatcher extends StatefulWidget {
     return VolumeState();
   }
 
+  static double _asDouble(Object? value) {
+    final num? n = value as num?;
+    return n?.toDouble() ?? 0.0;
+  }
+
   static Future<String> get platformVersion async {
-    final String version =
+    final Object? raw =
         await methodChannel.invokeMethod('getPlatformVersion');
-    return version;
+    return raw?.toString() ?? '';
   }
 
   /*
    * Get the maximum volume of the current system
    */
   static Future<double> get getMaxVolume async {
-    final double maxVolume =
+    final Object? raw =
         await methodChannel.invokeMethod('getMaxVolume', {});
-    return maxVolume;
+    return _asDouble(raw);
   }
 
   /*
    * Get the current system volume
    */
   static Future<double> get getCurrentVolume async {
-    final double currentVolume =
+    final Object? raw =
         await methodChannel.invokeMethod('getCurrentVolume', {});
-    return currentVolume;
+    return _asDouble(raw);
   }
 
   /*

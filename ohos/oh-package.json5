@@ -1,0 +1,9 @@
+{
+  "name": "volume_watcher",
+  "version": "2.0.1",
+  "description": "Support HarmonyOS real-time return system volume value, maximum volume, initial volume, support set volume.",
+  "main": "index.ets",
+  "author": "",
+  "license": "MIT",
+  "dependencies": {}
+}

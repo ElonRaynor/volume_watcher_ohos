@@ -17,6 +17,8 @@ dev_dependencies:
 flutter:
   plugin:
     platforms:
+      ohos:
+        pluginClass: VolumeWatcherPlugin
       android:
         package: com.magugi.volume_watcher
         pluginClass: VolumeWatcherPlugin

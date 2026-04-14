@@ -1,0 +1,10 @@
+{
+  "module": {
+    "name": "volume_watcher",
+    "type": "har",
+    "deviceTypes": [
+      "default",
+      "tablet"
+    ]
+  }
+}
